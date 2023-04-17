@@ -16,8 +16,8 @@ locals {
       # The below is fucking ugly but works as expected. :o !!
       ipconfig0 = pool.ipconfig0 != "dhcp" ? "ip=${cidrhost(pool.subnet, (pool.worker_start_index != "" ? pool.worker_start_index + worker :
         ((pool.subnet == var.masters.subnet) ? (local.get_last_master_ip + 1) + worker :
-        ((element(split(".", pool.gw), 3) <= 253) ? (element(split(".", pool.gw), 3) + 1) + worker :
-        1 + worker))))}/${element(split("/", pool.subnet), 1)},gw=${pool.gw}" : "dhcp"
+          ((element(split(".", pool.gw), 3) <= 253) ? (element(split(".", pool.gw), 3) + 1) + worker :
+      1 + worker))))}/${element(split("/", pool.subnet), 1)},gw=${pool.gw}" : "dhcp"
       scsihw        = pool.scsihw
       disks         = pool.disks
       image         = pool.image
