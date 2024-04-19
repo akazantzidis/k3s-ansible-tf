@@ -1,41 +1,39 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    ":enableRenovate",
-    "config:base",
-    ":disableRateLimiting",
-    ":dependencyDashboard",
-    ":semanticCommits",
-    ":separatePatchReleases",
-    "docker:enableMajor"
-  ],
-  "vulnerabilityAlerts": {
-    "enabled": true
-  },
-  "rangeStrategy": "widen",
-  "platform": "github",
-  "onboarding": false,
-  "requireConfig": false,
-  "timezone": "Europe/Athens",
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
-  "commitBody": "Signed-off-by: Alexandros Kazantzidis <akazantzidis@users.noreply.github.com>",
-  "suppressNotifications": ["prIgnoreNotification"],
-  "rebaseWhen": "conflicted",
-  "rollbackPrs": true,
-  "reviewers": ["akazantzidis"],
-  "pre-commit": {
-    "enabled": true
-  },
-  "terraform": {
-    "fileMatch": [
-      ".+\\.tf$"
-    ]
-  },
-  "packageRules": [
-    {
-       "description": "Automerge non-major updates",
-       "matchUpdateTypes": ["minor", "patch"],
-       "automerge": true
-    }
-  ]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		":enableRenovate",
+		"config:base",
+		":disableRateLimiting",
+		":dependencyDashboard",
+		":semanticCommits",
+		":separatePatchReleases",
+		"docker:enableMajor"
+	],
+	"packageRules": [{
+		"description": "Automerge non-major updates",
+		"matchUpdateTypes": ["minor", "patch"],
+		"automerge": true
+	}],
+	"vulnerabilityAlerts": {
+		"enabled": true
+	},
+	"rangeStrategy": "widen",
+	"platform": "github",
+	"onboarding": false,
+	"requireConfig": false,
+	"timezone": "Europe/Athens",
+	"dependencyDashboardTitle": "Renovate Dashboard 🤖",
+	"commitBody": "Signed-off-by: Alexandros Kazantzidis <akazantzidis@users.noreply.github.com>",
+	"suppressNotifications": ["prIgnoreNotification"],
+	"rebaseWhen": "conflicted",
+	"rollbackPrs": true,
+	"reviewers": ["akazantzidis"],
+	"pre-commit": {
+		"enabled": true
+	},
+	"terraform": {
+		"fileMatch": [
+			".+\\.tf$"
+		]
+	}
 }
